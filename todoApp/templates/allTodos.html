@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Django Todo</title>
+    <style>
+      body {
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+      }
+      .title {
+        color: red;
+      }
+      .container {
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="title">Django CRUD</h1>
+      <form action="" method="POST">
+        {% csrf_token %} {{form}}
+        <button type="submit">Submit</button>
+      </form>
+      {% for todo in tasks %}
+      <p>{{todo.task}}</p>
+      <a href="{% url 'update-todo' todo.id %}">Update</a>
+      <a href="{% url 'delete-todo' todo.id %}">Delete</a>
+      {% endfor %}
+    </div>
+  </body>
+</html>
